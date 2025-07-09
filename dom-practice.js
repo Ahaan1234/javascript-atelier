@@ -19,3 +19,13 @@ box.innerHTML = "<h1> I'm in a div</h1> <p>ME TOO!</p>";
 
 container.append(content, paragraph, header, box);
 
+function alertFunction() {
+  alert("YAY! YOU DID IT!");
+}
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", function (e) {
+    e.target.style.background = "blue";
+});
+
+
