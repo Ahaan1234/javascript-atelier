@@ -4,7 +4,22 @@ const button = document.querySelector(".get-input");
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+// playGame();
+
+
+const humanChoice = document.querySelectorAll('.input');
+let humanSelection;
+
+humanChoice.forEach(choice => {
+    choice.addEventListener("click", function (e) {
+        humanSelection = choice.textContent;
+        console.log(humanSelection);
+        playRound(humanSelection, getComputerChoice());
+    });
+});
+
+const result = document.createElement('.input');
+
 
 function playGame() {
     const humanSelection = getHumanChoice();
@@ -26,33 +41,31 @@ function playRound(humanChoice, computerChoice) {
     let cc = computerChoice.toLowerCase();
     if ((hc === "rock" && cc === "paper") || (hc === "paper" && cc === "scissors") || (hc === "scissors" && cc === "rock")) {
         computerScore = computerScore + 1;
-        alert(`You Lose! ${computerChoice} beats ${humanChoice}!`);
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}!`);
     }
-    else if ((hc === "rock" && cc === "paper") || (hc === "paper" && cc === "scissors") || (hc === "scissors" && cc === "rock")) {
+    else if ((hc === "paper" && cc === "rock") || (hc === "scissors" && cc === "paper") || (hc === "rock" && cc === "scissors")) {
         humanScore = humanScore + 1;
-        alert(`You Win! ${humanChoice} beats ${computerChoice}!`);
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}!`);
     }
     else {
-        alert(`Draw!`);
+        console.log(`Draw!`);
     }
 };
 
 function getComputerChoice() {
     let x = Math.random();
-    if (x < 0.33) {
+    if (x <= 0.33) {
+        console.log("Rock")
         return "Rock";
     }
-    else if (x < 0.67) {
+    else if (x <= 0.67) {
+        console.log("Paper")
         return "Paper";
     }
     else {
+        console.log("Scissors")
         return "Scissors";
     }
-};
-
-function getHumanChoice() {
-    let input = window.prompt("Rock, Paper, Scissors?");
-    return input;
 };
 
 button.addEventListener("click", () => {
