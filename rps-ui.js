@@ -8,6 +8,9 @@ let computerScore = 0;
 
 
 const humanChoice = document.querySelectorAll('.input');
+const container = document.querySelector(".container");
+const result = document.createElement("div");
+const score = document.createElement("p");
 let humanSelection;
 
 humanChoice.forEach(choice => {
@@ -15,40 +18,34 @@ humanChoice.forEach(choice => {
         humanSelection = choice.textContent;
         console.log(humanSelection);
         playRound(humanSelection, getComputerChoice());
+        score.textContent = `Human Score: ${humanScore}; Computer Score: ${computerScore}`;
+        container.append(result, score);
+        if(humanScore >= 5) {
+            result.textContent = "You Win! Congrats lol";
+            score.textContent = "";
+            container.append(result, score);
+        }
+        if(computerScore >= 5) {
+            result.textContent = "You Lose ;-; oopsie";
+            score.textContent = "";
+            container.append(result, score);
+        }
     });
 });
-
-const result = document.createElement('.input');
-
-
-function playGame() {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-    if(humanScore > computerScore){
-        alert("You Win! Congrats lol");
-    } else if(humanScore > computerScore){
-        alert("You Lose! Get good noob");
-    } else {
-        alert("Draw!");
-    }
-};
 
 function playRound(humanChoice, computerChoice) {
     let hc = humanChoice.toLowerCase();
     let cc = computerChoice.toLowerCase();
     if ((hc === "rock" && cc === "paper") || (hc === "paper" && cc === "scissors") || (hc === "scissors" && cc === "rock")) {
         computerScore = computerScore + 1;
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}!`);
+        result.textContent = `You Lose! ${computerChoice} beats ${humanChoice}!`;
     }
     else if ((hc === "paper" && cc === "rock") || (hc === "scissors" && cc === "paper") || (hc === "rock" && cc === "scissors")) {
         humanScore = humanScore + 1;
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}!`);
+        result.textContent = `You Win! ${humanChoice} beats ${computerChoice}!`;
     }
     else {
-        console.log(`Draw!`);
+        result.textContent = `Draw!`;
     }
 };
 
@@ -67,10 +64,4 @@ function getComputerChoice() {
         return "Scissors";
     }
 };
-
-button.addEventListener("click", () => {
-    let input = getHumanChoice();
-    alert(input);
-    alert(getComputerChoice());
-});
 // console.log(getHumanChoice());
