@@ -1,0 +1,30 @@
+#calculator {
+    width: 150px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#display {
+    text-align: right;
+    background-color: lightslategray;
+    padding-top: 30px;
+    color: whitesmoke;
+}
+
+.opPad {
+    display: flex;
+    background-color: orange;
+}
+
+.row1, .row2, .row3, .row4 {
+    width: 150px;
+    height: 25px;
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    background-color: white;
+}
+
+.opPad > div {
+    flex: 1;
+}
