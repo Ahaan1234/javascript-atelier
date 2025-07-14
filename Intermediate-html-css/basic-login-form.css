@@ -17,6 +17,19 @@ body {
     background-repeat: no-repeat;
 }
 
+fieldset{
+    border: 0px;
+    display: flex;
+    width: 45rem;
+}
+
+input{
+    width: 20rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
 .login{
     margin-left: 3vw;
 }
