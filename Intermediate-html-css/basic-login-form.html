@@ -14,46 +14,44 @@
             <div class="description-text"><p>This is not a real page! Sign up <i>NOW</i> to get started</p></div>
             <div class="form">
                 <form action = "login-form" method = "post">
-                    <div class="form-container">
-                        <fieldset>
-                            <div class="input-group">
-                                <label for="first-name">First Name: </label>
-                                <input type="text" id="first-name">
-                            </div>
+                    <fieldset>
+                        <div class="input-group">
+                            <label for="first-name">First Name: </label>
+                            <input type="text" id="first-name">
+                        </div>
 
-                            <div class="input-group">
-                                <label for="last-name">Last Name: </label>
-                                <input type="text" id="last-name">
-                            </div>
-                        </fieldset>
+                        <div class="input-group">
+                            <label for="last-name">Last Name: </label>
+                            <input type="text" id="last-name">
+                        </div>
+                    </fieldset>
 
-                        <fieldset>
-                            <div class="input-group">
-                                <label for="email-id">Email ID: </label>
-                                <input type="email" id="email-id">
-                            </div>
+                    <fieldset>
+                        <div class="input-group">
+                            <label for="email-id">Email ID: </label>
+                            <input type="email" id="email-id">
+                        </div>
 
-                            <div class="input-group">
-                                <label for="mobile-no">Phone Number: </label>
-                                <input type="number" id="mobile-no">
-                            </div>
-                        </fieldset>
+                        <div class="input-group">
+                            <label for="mobile-no">Phone Number: </label>
+                            <input type="number" id="mobile-no" minlength="10" maxlength="10">
+                        </div>
+                    </fieldset>
 
-                        <fieldset>
-                            <div class="input-group">
-                                <label for="email-id">Password: </label>
-                                <input type="email" id="email-id">
-                            </div>
+                    <fieldset>
+                        <div class="input-group">
+                            <label for="email-id">Password: </label>
+                            <input type="password" id="pwd" required>
+                        </div>
 
-                            <div class="input-group">
-                                <label for="mobile-no">Phone Number: </label>
-                                <input type="number" id="mobile-no">
-                            </div>
-                        </fieldset>
-                    </div>
+                        <div class="input-group">
+                            <label for="mobile-no">Confirm Password: </label>
+                            <input type="password" id="pwd" required>
+                        </div>
+                    </fieldset>
                 </form>
             </div>
-            <button class="submit"></button>
+            <button id="submit">Create Account</button>
         </div>
     </div>
 </body>
