@@ -1,7 +1,7 @@
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
-  this.id = crypto.randomUUID;
+  this.id = crypto.randomUUID();
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -9,7 +9,10 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-    myLibrary.push(Book(title, author, pages, read));
+    const newBook = new Book(title, author, pages, read); // fixed
+    myLibrary.push(newBook);
+    return newBook;
+
 }
 
 function showLibrary(){
@@ -19,5 +22,10 @@ function showLibrary(){
 }
 
 const button = document.querySelector("#newBook");
+const container = document.querySelector(".books")
 
-button.addEventListener("click", )
+button.addEventListener("click", function(e) {
+    const card = document.createElement("div");  
+    card.classList.add("bookCard");
+    container.append(card);
+})
