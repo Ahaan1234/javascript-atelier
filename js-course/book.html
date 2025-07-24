@@ -8,11 +8,30 @@
     <script src = "book.js" defer></script>
 </head>
 <body>
+    <dialog id="getBookInfo">
+        <form>
+            <div class="input-group">
+                <label for="title">Title: </label>
+                <input type="text" id="title">
+            </div>
+            <div class="input-group">
+                <label for="auth">Author: </label>
+                <input type="text" id="auth">
+            </div>
+            <div class="input-group">
+                <label for="pages">Pages: </label>
+                <input type="number" id="pages">
+            </div>
+            <div class="input-group">
+                <label for="isRead">Read: </label>
+                <input type="radio" id="isRead">
+            </div>
+        </form>
+    </dialog>
+
     <div class="header">
         <button id="newBook">Add book!</button>
     </div>
-    <div class="books">
-        
-    </div>
+    <div class="books"> </div>
 </body>
 </html>
