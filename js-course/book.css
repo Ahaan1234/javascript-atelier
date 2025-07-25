@@ -32,6 +32,55 @@ button:hover {
     background-color: rgb(45, 119, 230);
 }
 
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 300px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    font-family: system-ui, sans-serif;
+    margin: auto;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    column-gap: 10px;
+}
+
+menu button {
+    height: 2rem;
+    border: none;
+    border-radius: 15px;
+    background: #1992D4;
+    color: white;
+    cursor: pointer;
+}
+
+menu button#cancel {
+    background: #ccc;
+    color: black;
+}
+
 .books{
     display: grid;
     grid-template-rows: auto;
@@ -46,4 +95,6 @@ button:hover {
     border-radius: 8px;
     background-color: rgb(238, 238, 238);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 2rem;
 }
