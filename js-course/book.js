@@ -12,8 +12,11 @@ function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read); // fixed
     myLibrary.push(newBook);
     return newBook;
-
+    
 }
+
+const addBook = document.querySelector("#getBookInfo");
+
 
 function showLibrary(){
     myLibrary.forEach(function(book, index) {
