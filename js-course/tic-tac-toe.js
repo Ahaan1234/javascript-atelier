@@ -1,24 +1,54 @@
-const container = document.getElementsByClassName("container")
+// const container = document.getElementsByClassName("container")
 
-const square = document.createElement("div");
-square.classList.add("box");
+// const square = document.createElement("div");
+// square.classList.add("box");
 
-square.textContent = "box";
+// square.textContent = "box";
 
-function Box(coor) {
-    let value;
-    const setValue = (val) => value = val;
-    container.append(square);
-    return {coor, value};
+// function Box(coor) {
+//     let value;
+//     const setValue = (val) => value = val;
+//     container.append(square);
+//     return {coor, value};
+// }
+
+// const gameBoard = (function() {
+//     const grid=[Box(0), Box(1), Box(2),
+//                 Box(3), Box(4), Box(5),
+//                 Box(6), Box(7), Box(8)];
+
+//     const checkWinner = () => {
+//         const winningCombos = [
+//             [0,1,2], [3,4,5], [6,7,8], // rows
+//             [0,3,6], [1,4,7], [2,5,8], // cols
+//             [0,4,8], [2,4,6]           // diagonals
+//         ];
+
+//         return winningCombos.some(combo => {
+//             const [a, b, c] = combo;
+//             return Box(a).value !== undefined && Box(a).value === Box(b).value && Box(a).value === Box(c).value;
+//         });
+//     }
+// });
+
+let board = Array(9).fill(null);
+let gameOn;
+function gameLoop() {
+    index = 0;
+    while(!winnerExists()){
+        let coord = prompt("enter grid number: ");
+        if(index % 2 === 0){
+            board[coord] = "X";
+            index++;
+        } else {
+            board[coord] = "O";
+            index++;
+        }
+    }
 }
 
-const gameBoard = (function() {
-    const grid=[Box(0), Box(1), Box(2),
-                Box(3), Box(4), Box(5),
-                Box(6), Box(7), Box(8)];
-
-    const checkWinner = () => {
-        const winningCombos = [
+function winnerExists() {
+    const winningCombos = [
             [0,1,2], [3,4,5], [6,7,8], // rows
             [0,3,6], [1,4,7], [2,5,8], // cols
             [0,4,8], [2,4,6]           // diagonals
@@ -28,11 +58,6 @@ const gameBoard = (function() {
             const [a, b, c] = combo;
             return Box(a).value !== undefined && Box(a).value === Box(b).value && Box(a).value === Box(c).value;
         });
-    }
-});
-
-function gameLoop() {
-    
 }
 
 /*
