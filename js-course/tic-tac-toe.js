@@ -1,7 +1,21 @@
+const container = document.getElementsByClassName("container")
+
+const square = document.createElement("div");
+square.classList.add("box");
+
+square.textContent = "box";
+
+function Box(coor) {
+    let value;
+    const setValue = (val) => value = val;
+    container.append(square);
+    return {coor, value};
+}
+
 const gameBoard = (function() {
-    const grid=[setBox(1), setBox(2), setBox(3),
-                setBox(4), setBox(5), setBox(6),
-                setBox(7), setBox(8), setBox(9)];
+    const grid=[Box(0), Box(1), Box(2),
+                Box(3), Box(4), Box(5),
+                Box(6), Box(7), Box(8)];
 
     const checkWinner = () => {
         const winningCombos = [
@@ -12,17 +26,13 @@ const gameBoard = (function() {
 
         return winningCombos.some(combo => {
             const [a, b, c] = combo;
-            return setBox(a).value !== undefined && setBox(a).value === setBox(b).value && setBox(a).value === setBox(c).value;
+            return Box(a).value !== undefined && Box(a).value === Box(b).value && Box(a).value === Box(c).value;
         });
     }
-})
+});
 
-function setBox(coor) {
-    let value;
-
-    const setValue = (val) => value = val;
-
-    return {coor, value};
+function gameLoop() {
+    
 }
 
 /*
@@ -38,4 +48,5 @@ Player  winner = True / False
                         if it doesnt: changes "value" of box to 1 or 2 ; calls update method
                         else does nothing
 
+Box  coor => returns {coor, value=(X or O)}
 */
